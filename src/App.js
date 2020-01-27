@@ -11,7 +11,8 @@ import 'codemirror-graphql/hint';
 import 'codemirror-graphql/lint';
 import 'codemirror-graphql/mode';
 
-const BASE_URL = process.env.NODE_ENV === 'development' ? '' : process.env.API_URL;
+const BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'https://oasgraphql-api.netlify.com;'
+console.log('BASE_URL', BASE_URL);
 
 // CodeMirror.fromTextArea(myTextarea, {
 //   mode: 'graphql',
