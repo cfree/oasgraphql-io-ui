@@ -11,6 +11,8 @@ import 'codemirror-graphql/hint';
 import 'codemirror-graphql/lint';
 import 'codemirror-graphql/mode';
 
+const BASE_URL = process.env.NODE_ENV === 'development' ? '' : process.env.API_URL;
+
 // CodeMirror.fromTextArea(myTextarea, {
 //   mode: 'graphql',
   // lint: {
@@ -35,7 +37,7 @@ function App() {
   const handleClick = useCallback(() => {
     const getAsyncSchema = async () => {
       setLoading(true);
-      const results = await fetch('/convert', {
+      const results = await fetch(`${BASE_URL}/convert`, {
         method: 'POST',
         body: swaggerCode,
         headers: {
