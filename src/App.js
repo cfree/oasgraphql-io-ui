@@ -11,7 +11,7 @@ import 'codemirror-graphql/hint';
 import 'codemirror-graphql/lint';
 import 'codemirror-graphql/mode';
 
-const BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'https://oasgraphql-api.herokuapp.com/';
+const BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'https://oasgraphql-api.herokuapp.com';
 console.log('BASE_URL', BASE_URL);
 
 // CodeMirror.fromTextArea(myTextarea, {
