@@ -78,7 +78,24 @@ function App() {
           </header>
           {graphqlId && (
             <div className="editor-results">
-              {Object.entries(graphqlReport).map(data => (<p><strong>{data[0]}</strong>: {data[1]}</p>))}
+              {Object.entries(graphqlReport).map(data => {
+                if (data[0] === 'warnings') {
+                  return (
+                    <>
+                      <p><strong>Warnings</strong></p>
+                      <dl>
+                        {data[1].map(warning => (
+                          <>
+                            <dd>{warning.type}</dd>
+                            <dt>{warning.message}</dt>
+                          </>
+                        ))}
+                      </dl>
+                    </>
+                  );
+                }
+                return (<p><strong>{data[0]}</strong>: {data[1]}</p>);
+              })}
 
               <a href={`${BASE_URL}/graphql/${graphqlId}`} target="_blank" rel="noopener noreferrer">View GraphiQL</a>
 
