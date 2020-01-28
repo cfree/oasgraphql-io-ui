@@ -93,7 +93,7 @@ function App() {
             <div className="editor-results">
               {Object.entries(graphqlReport).map(data => (<p><strong>{data[0]}</strong>: {data[1]}</p>))}
 
-              <a href={`/graphiql/${graphqlId}`} target="_blank" rel="noopener noreferrer">View GraphiQL</a>
+              <a href={`${BASE_URL}/graphql/${graphqlId}`} target="_blank" rel="noopener noreferrer">View GraphiQL</a>
             </div>
           )}
           {loading && (
