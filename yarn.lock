@@ -8680,7 +8680,15 @@ react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
-react@^16.12.0:
+react-json-prettify@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/react-json-prettify/-/react-json-prettify-0.1.5.tgz#d16a48fe23fb6a86a3a78d993b28ded44f4b5a5b"
+  integrity sha512-3OpqubfUjqfZ/CkxtSvhlKSNDKVxbW2qYizcdh+DnUQExFwRiSVC8iOOEtnM1H0fGcJsYKDTo0Uqw2v7g/wDmg==
+  dependencies:
+    prop-types "^15.6.2"
+    react "^16.5.2"
+
+react@^16.12.0, react@^16.5.2:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
   integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==

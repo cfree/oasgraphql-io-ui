@@ -1,35 +1,21 @@
 import React, { useState, useCallback } from 'react';
 import CodeMirror from 'react-codemirror';
 // import classNames from 'classnames';
+import JSONPretty from 'react-json-prettify';
 
 import 'codemirror/lib/codemirror.css';
 import './App.css';
 import 'codemirror/addon/hint/show-hint';
 import 'codemirror/addon/lint/lint';
 import 'codemirror/mode/javascript/javascript';
-import 'codemirror-graphql/hint';
-import 'codemirror-graphql/lint';
-import 'codemirror-graphql/mode';
 
 const BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'https://oasgraphql-api.herokuapp.com';
-console.log('BASE_URL', BASE_URL);
-
-// CodeMirror.fromTextArea(myTextarea, {
-//   mode: 'graphql',
-  // lint: {
-  //   schema: myGraphQLSchema,
-  // },
-  // hintOptions: {
-  //   schema: myGraphQLSchema,
-  // },
-// });
-
-// const graphqlSchema = '';
 
 function App() {
   const [swaggerCode, setSwaggerCode] = useState('');
   const [graphqlId, setGraphqlId] = useState('');
   const [graphqlReport, setGraphqlReport] = useState({});
+  const [graphqlSchema, setGraphqlSchema] = useState({});
   const [loading, setLoading] = useState(false);
 
   const handleSwaggerChange = useCallback((newCode) => {
@@ -48,6 +34,7 @@ function App() {
       const jsonResults = await results.json();
       setGraphqlId(jsonResults.id);
       setGraphqlReport(jsonResults.report);
+      setGraphqlSchema(jsonResults.schema);
       setLoading(false);
     };
     getAsyncSchema();
@@ -94,6 +81,8 @@ function App() {
               {Object.entries(graphqlReport).map(data => (<p><strong>{data[0]}</strong>: {data[1]}</p>))}
 
               <a href={`${BASE_URL}/graphql/${graphqlId}`} target="_blank" rel="noopener noreferrer">View GraphiQL</a>
+
+              <JSONPretty json={graphqlSchema} />
             </div>
           )}
           {loading && (
